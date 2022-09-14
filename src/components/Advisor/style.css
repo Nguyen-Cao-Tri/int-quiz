@@ -33,11 +33,11 @@ button:hover {
 
 .list__item__horizontal {
   display: flex;
-  
+  overflow: scroll;
 }
 
 .list__item__horizontal .item {
-  margin: 50px;
+  margin: 50px 20px;
   display: grid;
   width: 500px;
   height: 1400px;
@@ -60,6 +60,7 @@ button:hover {
   width: 350px;
   border-radius: 10px;
   margin: 20px 25px;
+  overflow: scroll;
 }
 .list__item__vertical .item__content {
   width: 1200px;
@@ -114,7 +115,12 @@ button:hover {
   width: 1000px;
   padding: 100px;
 }
-
+.change__view{
+  margin-left: 20px;
+}
+.btn__search{
+  margin-right: 21px;
+}
 .item__status{
   display: flex;
   margin-top: 5px;

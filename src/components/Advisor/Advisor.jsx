@@ -2,7 +2,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useState, useRef } from 'react'
 import { AiTwotonePlayCircle } from 'react-icons/ai'
-import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody, MDBCardImage, MDBCardTitle, MDBIcon, } from "mdb-react-ui-kit";
 import Category from '../Category/Category'
 import Skill from '../Skill/Skill'
 import Service from '../Service/Service'
@@ -50,10 +49,10 @@ const Advisor = ({ items }) => {
   return (
     <>
       <div className="feature">
-        <button onClick={() => setIsVertical(pre => !pre)}>{isVertical ? "Vertical" : "Horizontal"}</button>
+        <button className='change__view' onClick={() => setIsVertical(pre => !pre)}>{isVertical ? "Vertical" : "Horizontal"}</button>
         <div className='feature__search'>
           <input ref={inputRef} type="text" placeholder='Search' onKeyDown={onPressEnter} />
-          <button onClick={() => handleOnClick()}>Search</button>
+          <button className='btn__search' onClick={() => handleOnClick()}>Search</button>
         </div>
         <div className="feature__status">
           <input name='status' type="radio" onClick={handleOnClickAll} checked={isChecked} /> All
