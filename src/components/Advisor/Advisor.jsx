@@ -10,8 +10,8 @@ import './style.css'
 
 const Advisor = ({ items }) => {
   const [isVertical, setIsVertical] = useState(false)
-  const [values, setValues] = useState(items)
-  const [status, setStatus] = useState(values)
+  const [dataList, setDataList] = useState(items)
+  const [status, setStatus] = useState(dataList)
   const inputRef = useRef()
   const [isChecked, setIsChecked] = useState(true)
   const onPressEnter = (event) => {
@@ -21,29 +21,29 @@ const Advisor = ({ items }) => {
   }
   const handleOnClick = () => {
     const value = inputRef?.current.value.trim().toLowerCase()
-    if (value === '') return setValues(items);
+    if (value === '') return setDataList(items);
 
     const new_list = items.filter(item => {
       if (item.displayName.toLowerCase().includes(value)) return true;
       if (item.categoriesCollection.items.some(category => category.displayName.toLowerCase().includes(value))) return true;
       return false;
     })
-    setValues(new_list)
+    setDataList(new_list)
     setStatus(new_list)
     setIsChecked(true)
   }
-  const handleOnClickAll = () => {
-    setValues(status)
+  const handleFilterAllList = () => {
+    setDataList(status)
     setIsChecked(true)
   }
-  const handleOnClickOnline = () => {
+  const handleFliterOnlineList = () => {
     const new_list = status.filter(item => item.status === "online")
-    setValues(new_list)
+    setDataList(new_list)
     setIsChecked(false)
   }
-  const handleOnClickOffline = () => {
+  const handleFilterOfflineList = () => {
     const new_list = status.filter(item => item.status === "offline")
-    setValues(new_list)
+    setDataList(new_list)
     setIsChecked(false)
   }
   return (
@@ -55,14 +55,14 @@ const Advisor = ({ items }) => {
           <button className='btn__search' onClick={() => handleOnClick()}>Search</button>
         </div>
         <div className="feature__status">
-          <input name='status' type="radio" onClick={handleOnClickAll} checked={isChecked} /> All
-          <input name='status' type="radio" onClick={handleOnClickOnline} /> Online
-          <input name='status' type="radio" onClick={handleOnClickOffline} /> Offline
+          <input name='status' type="radio" onClick={handleFilterAllList} checked={isChecked} /> All
+          <input name='status' type="radio" onClick={handleFliterOnlineList} /> Online
+          <input name='status' type="radio" onClick={handleFilterOfflineList} /> Offline
         </div>
       </div>
       <div className={`${isVertical ? "list__item__horizontal" : "list__item__vertical"}`}>
-        {values.length > 0 ?
-          values.map((item, index) =>
+        {dataList.length > 0 ?
+          dataList.map((item, index) =>
             <div className='item' >
               <div className="item__img">
                 {item?.avatarUrl?.url && <img key={index} src={item.avatarUrl.url}></img>}
