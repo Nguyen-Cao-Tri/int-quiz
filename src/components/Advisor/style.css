@@ -12,9 +12,6 @@ button {
 button:hover {
   background-color: aquamarine;
 }
-.item{
-  margin-top: 20px;
-}
 .list__item__vertical {
   height: auto;
   width: 100vh;
@@ -23,20 +20,35 @@ button:hover {
 }
 .list__item__vertical .item {
   display: flex;
-  width: 100%;
+  width: 1400px;
   height: 400px;
   margin-bottom: 10px;
-  border-bottom: 1px solid #a9a9a9;
+  margin-top: 40px;
+  background-color: #e5e5e5;
+  border-radius: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 20px;
 }
 
 .list__item__horizontal {
   display: flex;
+  
 }
 
 .list__item__horizontal .item {
-  margin-right: 50px;
+  margin: 50px;
+  display: grid;
+  width: 500px;
+  height: 1400px;
+  background-color: #e5e5e5;
+  border-radius: 20px;
+  position: relative;
 }
-
+.list__item__horizontal .item__img{
+  height: 300px; 
+  width: 400px;
+}
 .list__item__vertical .item__img img {
   height: 200px;
   width: 200px;
@@ -44,10 +56,10 @@ button:hover {
   margin: 10px;
 }
 .list__item__horizontal .item__img img {
-  height: 300px;
-  width: 300px;
+  height: 350px;
+  width: 350px;
   border-radius: 10px;
-  margin: 10px;
+  margin: 20px 25px;
 }
 .list__item__vertical .item__content {
   width: 1200px;
@@ -59,7 +71,9 @@ button:hover {
 .list__item__horizontal .item__content {
   width: 300px;
   height: 400px;
-  margin-left: 10px;
+  margin-left: 50px;
+  position: absolute;
+  bottom: 40%;
 }
 .list__item__horizontal .item__content .item__content__information {
   height: 200px;
@@ -68,7 +82,7 @@ button:hover {
   margin-bottom: 120px;
 }
 .list__item__horizontal .item__content__skill {
-  margin-bottom: -50px;
+  margin-bottom: -90px;
 }
 .item__content__information,
 .item__content__category,
@@ -110,7 +124,7 @@ button:hover {
 }
 .feature__status{
   position: absolute;
-  right: 20%;
+  right: 18%;
   top: 90%;
 }
 .feature__status input{

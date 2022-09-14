@@ -2,6 +2,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useState, useRef } from 'react'
 import { AiTwotonePlayCircle } from 'react-icons/ai'
+import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody, MDBCardImage, MDBCardTitle, MDBIcon, } from "mdb-react-ui-kit";
 import Category from '../Category/Category'
 import Skill from '../Skill/Skill'
 import Service from '../Service/Service'
@@ -63,8 +64,8 @@ const Advisor = ({ items }) => {
       <div className={`${isVertical ? "list__item__horizontal" : "list__item__vertical"}`}>
         {values.length > 0 ?
           values.map((item, index) =>
-            <div key={index} className="item">
-              <div className='item__img'>
+            <div className='item' >
+              <div className="item__img">
                 {item?.avatarUrl?.url && <img key={index} src={item.avatarUrl.url}></img>}
               </div>
               <div className='item__content'>
@@ -78,19 +79,19 @@ const Advisor = ({ items }) => {
                     {item?.status === 'online' ? <AiTwotonePlayCircle style={{ color: "green" }} /> : <AiTwotonePlayCircle style={{ color: "black" }} />}
                   </div>
                 </div>
-                <div className='item__content__category'>
-                  <h3>Doanh mục</h3>
-                  <Category categories={item.categoriesCollection.items} />
+                  <div className='horizontal__list item__content__category'>
+                    <h3>Doanh mục</h3>
+                    <Category categories={item.categoriesCollection.items} />
+                  </div>
+                  <div className='horizontal__list item__content__skill'>
+                    <h3>Kỹ năng</h3>
+                    <Skill skills={item.skillsCollection.items} />
+                  </div>
+                  <div className='horizontal__list item__content__service'>
+                    <h3>Dịch vụ</h3>
+                    <Service services={item.servicesCollection.items} />
+                  </div>
                 </div>
-                <div className='item__content__skill'>
-                  <h3>Kỹ năng</h3>
-                  <Skill skills={item.skillsCollection.items} />
-                </div>
-                <div className='item__content__service'>
-                  <h3>Dịch vụ</h3>
-                  <Service services={item.servicesCollection.items} />
-                </div>
-              </div>
             </div>
           ) : <div className='noData'>Không tìm thấy tên cố vấn hoặc doanh mục! Xin vui lòng nhập lại</div>
         }
